@@ -1,4 +1,7 @@
--- Class helper: optional single inheritance
+--- Helper to create a new class, optionally extending a base.
+---@generic T
+---@param base T?
+---@return T
 function Class(base)
 	local cls = {}
 	cls.__index = cls
