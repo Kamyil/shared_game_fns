@@ -1,24 +1,32 @@
+local Class = require("shared_game_fns/class")
+
 --- @class Entity
 --- @field x       number
 --- @field y       number
 --- @field w       number
 --- @field h       number
---- @field is_alive boolean
+--- @field hp      number
+--- @field mana    number
+--- @field sprite  string  TODO: Change it to string per state
+--- @field attack_damage  number
+--- @field armor  number
+--- @field magic_resistance  number
+--- @field abilities  Ability[]
 local Entity = Class()
 
 ---Constructor
----@param x number
----@param y number
----@param w number
----@param h number
----@param speed number
-function Entity:new(x, y, w, h, speed)
-	self.x = x or 0
-	self.y = y or 0
-	self.w = w or 0
-	self.h = h or 0
-	self.is_alive = true
-	self.speed = speed or 2
+---@param newEntity Entity
+function Entity:new(newEntity)
+	self.x = newEntity.x or 0
+	self.y = newEntity.y or 0
+	self.w = newEntity.w or 0
+	self.h = newEntity.h or 0
+	self.hp = newEntity.hp or 2
+	self.mana = newEntity.mana or 2
+	self.movement_speed = newEntity.movement_speed or 2
+	self.attack_damage = newEntity.attack_damage or 2
+	self.armor = newEntity.armor or 2
+	self.magic_resistance = newEntity.magic_resistance or 2
 end
 
 ---@param dt number
